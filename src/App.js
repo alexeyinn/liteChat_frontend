@@ -1,12 +1,13 @@
 import React from "react";
-import io from "socket.io-client";
 
-const socket = io("https://gcfri.sse.codesandbox.io/");
+import JoinBlock from "./components/JoinBlock";
 
-export default function App() {
+function App() {
   return (
-    <div className="App">
-      <h1>Hello, world!</h1>
+    <div className="wrapper">
+      <JoinBlock />
     </div>
   );
 }
+
+export default App;
