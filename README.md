@@ -1,2 +1,3 @@
-# liteChat_frontend
-Created with CodeSandbox
+Frontend проекта liteChat, в рамках вебинара - https://www.youtube.com/watch?v=5uES64gckVQ&ab_channel=ArchakovBlog
+
+Работа в процессе...
