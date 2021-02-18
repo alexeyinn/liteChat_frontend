@@ -1,6 +1,7 @@
 import React from "react";
+import axios from "axios";
 
-import socket from "../socket";
+//import socket from "../socket";
 
 export default function JoinBlock() {
   const [roomId, setRoomId] = React.useState("");
@@ -10,6 +11,7 @@ export default function JoinBlock() {
     if (!roomId || !userName) {
       return alert("Заполните все поля! Поле не может быть пустым!");
     }
+    axios.post("https://gcfri.sse.codesandbox.io/rooms", { roomId, userName });
   };
 
   return (
@@ -26,13 +28,7 @@ export default function JoinBlock() {
         value={userName}
         onChange={(e) => setUserName(e.target.value)}
       />
-      <button
-        className="btn btn-success"
-        onClick={() => {
-          onEnter();
-          socket();
-        }}
-      >
+      <button className="btn btn-success" onClick={onEnter}>
         ВОЙТИ
       </button>
     </div>
