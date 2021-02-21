@@ -3,7 +3,7 @@ import axios from "axios";
 
 //import socket from "../socket";
 
-export default function JoinBlock() {
+export default function JoinBlock({ onLogin }) {
   const [roomId, setRoomId] = React.useState("");
   const [userName, setUserName] = React.useState("");
 
@@ -11,7 +11,9 @@ export default function JoinBlock() {
     if (!roomId || !userName) {
       return alert("Заполните все поля! Поле не может быть пустым!");
     }
-    axios.post("https://gcfri.sse.codesandbox.io/rooms", { roomId, userName });
+    axios
+      .post("https://gcfri.sse.codesandbox.io/rooms", { roomId, userName })
+      .then(onLogin);
   };
 
   return (
