@@ -6,14 +6,14 @@ import JoinBlock from "./components/JoinBlock";
 
 function App() {
   const [state, dispatch] = React.useReducer(reducer, {
-    isAuth: false,
+    joined: false,
     roomId: null,
     userName: null
   });
 
   const onLogin = (obj) => {
     dispatch({
-      type: "IS_AUTH",
+      type: "JOINED",
       payload: obj
     });
     socket.emit("ROOM:JOIN", obj);
@@ -21,9 +21,17 @@ function App() {
 
   console.log(state);
 
+  React.useEffect(() => {
+    socket.on("ROOM:JOINED", (users) => {
+      console.log("Подключился новый пользователь", users);
+    });
+  }, []);
+
+  window.socket = socket;
+
   return (
     <div className="wrapper">
-      {!state.isAuth && <JoinBlock onLogin={onLogin} />}
+      {!state.joined && <JoinBlock onLogin={onLogin} />}
     </div>
   );
 }
