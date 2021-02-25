@@ -25,12 +25,15 @@ function App() {
   console.log(state);
 
   React.useEffect(() => {
-    socket.on("ROOM:JOINED", (users) => {
+    const setUsers = (users) => {
       dispatch({
         type: "SET_USERS",
         payload: users
       });
-    });
+    };
+
+    socket.on("ROOM:JOINED", setUsers);
+    socket.on("ROOM:SET_USERS", setUsers);
   }, []);
 
   window.socket = socket;
