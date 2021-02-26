@@ -5,7 +5,7 @@ export default function JoinBlock({ onLogin }) {
   const [roomId, setRoomId] = React.useState("");
   const [userName, setUserName] = React.useState("");
 
-  const onEnter = () => {
+  const onEnter = async () => {
     if (!roomId || !userName) {
       return alert("Заполните все поля! Поле не может быть пустым!");
     }
@@ -13,7 +13,7 @@ export default function JoinBlock({ onLogin }) {
       roomId,
       userName
     };
-    axios.post("https://gcfri.sse.codesandbox.io/rooms", obj);
+    await axios.post("https://gcfri.sse.codesandbox.io/rooms", obj);
     onLogin(obj);
   };
 
