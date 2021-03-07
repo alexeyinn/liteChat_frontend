@@ -13,7 +13,7 @@ export default function JoinBlock({ onLogin }) {
       roomId,
       userName
     };
-    await axios.post("https://gcfri.sse.codesandbox.io/rooms", obj);
+    await axios.post("http://localhost:8080/rooms", obj);
     onLogin(obj);
   };
 

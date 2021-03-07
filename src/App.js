@@ -12,39 +12,35 @@ function App() {
     roomId: null,
     userName: null,
     users: [],
-    messages: []
+    messages: [],
   });
 
   const onLogin = async (obj) => {
     dispatch({
       type: "JOINED",
-      payload: obj
+      payload: obj,
     });
-    console.log(obj.roomId);
     socket.emit("ROOM:JOIN", obj);
     const { data } = await axios.get(`/rooms/${obj.roomId}`);
-    //console.log(data);
     dispatch({
       type: "SET_USERS",
-      payload: Array(obj.userName)
+      payload: Array(obj.userName),
     });
   };
 
   const setUsers = (users) => {
     dispatch({
       type: "SET_USERS",
-      payload: users
+      payload: users,
     });
   };
-
-  console.log(state);
 
   React.useEffect(() => {
     socket.on("ROOM:SET_USERS", setUsers);
     socket.on("ROOM:NEW_MESSAGE", (message) => {
       dispatch({
         type: "NEW_MESSAGE",
-        payload: message
+        payload: message,
       });
     });
   }, []);
@@ -54,7 +50,7 @@ function App() {
   const addMessage = (message) => {
     dispatch({
       type: "NEW_MESSAGE",
-      payload: message
+      payload: message,
     });
   };
 

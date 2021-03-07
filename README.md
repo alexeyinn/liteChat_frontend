@@ -1,3 +1,5 @@
-Frontend проекта liteChat, в рамках вебинара - https://www.youtube.com/watch?v=5uES64gckVQ&ab_channel=ArchakovBlog
+Результат прохождения вебинара - https://www.youtube.com/watch?v=5uES64gckVQ&ab_channel=ArchakovBlog
 
-Работа в процессе...
+Чат на socket.io с основным функционалом.
+
+Так же - backend реализован на express. Frontend на react.
