@@ -1,7 +1,7 @@
 {
-  "name": "liteChat-frontend",
+  "name": "lite-chat-socket.io",
   "version": "1.0.0",
-  "description": "React example starter project",
+  "description": "Lite chat on Node.js and react.js",
   "keywords": [
     "react",
     "starter"
@@ -21,6 +21,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "server": "node src/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
